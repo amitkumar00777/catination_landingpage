@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.catination.com
+
+# Sitemaps
+Sitemap: https://www.catination.com/sitemap.xml
