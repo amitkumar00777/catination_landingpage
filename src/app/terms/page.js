@@ -99,7 +99,7 @@ export default function TermsOfServicePage() {
         <div>
           <h2 className="text-3xl font-semibold mb-4">9. Limitation of Liability</h2>
           <p className="text-white/70 leading-relaxed">
-            Catination CRM is provided "as is" without warranties. We are not liable for indirect, incidental, or consequential damages arising from the use of our services.
+            Catination CRM is provided &quot;as is&quot; without warranties. We are not liable for indirect, incidental, or consequential damages arising from the use of our services.
           </p>
         </div>
 
@@ -127,7 +127,7 @@ export default function TermsOfServicePage() {
           </p>
           <p className="text-white/70 leading-relaxed">
             <strong>Email:</strong> catinationventure@gmail.com<br/>
-            <strong>Address:</strong> Dubai, UAE & India
+            <strong>Address:</strong> Dubai, UAE &amp; India
           </p>
         </div>
       </section>
