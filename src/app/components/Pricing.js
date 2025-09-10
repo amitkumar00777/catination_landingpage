@@ -20,10 +20,10 @@ const plans = [
     name: "Starter",
     icon: Zap,
     userCount: "Up to 20 Users",
-    userFee: "₹799 per user / month",
-    companyFee: "₹1599 / month (Company Portal)",
+    userFee: "$9 per user / month",
+    companyFee: "$19 / month (Company Portal)",
     description: "Best for individual agents & small teams",
-    emailCredits: "Free 1,000 emails/month • Extra: ₹60 per 1,000",
+    emailCredits: "Free 1,000 emails/month • Extra: $1 per 1,000",
     buttonText: "Contact Us",
     popular: false
   },
@@ -31,10 +31,10 @@ const plans = [
     name: "Growth",
     icon: Crown,
     userCount: "20–100 Users",
-    userFee: "₹599 per user / month",
-    companyFee: "₹1599 / month (Company Portal)",
+    userFee: "$7 per user / month",
+    companyFee: "$19 / month (Company Portal)",
     description: "Perfect for growing real estate businesses",
-    emailCredits: "Free 5,000 emails/month • Extra: ₹60 per 1,000",
+    emailCredits: "Free 5,000 emails/month • Extra: $1 per 1,000",
     buttonText: "Contact Us",
     popular: true
   },
@@ -42,10 +42,10 @@ const plans = [
     name: "Enterprise",
     icon: Rocket,
     userCount: "100+ Users",
-    userFee: "₹499 per user / month",
-    companyFee: "₹1599 / month (Company Portal)",
+    userFee: "$6 per user / month",
+    companyFee: "$19 / month (Company Portal)",
     description: "For large brokerages & enterprises",
-    emailCredits: "Free 10,000 emails/month • Extra: ₹60 per 1,000",
+    emailCredits: "Free 10,000 emails/month • Extra: $1 per 1,000",
     buttonText: "Contact Us",
     popular: false
   }
@@ -114,18 +114,16 @@ export default function Pricing() {
               </ul>
 
               {/* CTA Button */}
-             {/* CTA Button */}
-<a
-  href="#contact"
-  className={`w-full py-3 rounded-lg transition-all duration-300 inline-block text-center ${
-    plan.popular
-      ? 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white'
-      : 'bg-white/10 hover:bg-white/20 text-white border border-purple-500/30 hover:border-purple-400/50'
-  }`}
->
-  {plan.buttonText}
-</a>
-
+              <a
+                href="#contact"
+                className={`w-full py-3 rounded-lg transition-all duration-300 inline-block text-center ${
+                  plan.popular
+                    ? 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white'
+                    : 'bg-white/10 hover:bg-white/20 text-white border border-purple-500/30 hover:border-purple-400/50'
+                }`}
+              >
+                {plan.buttonText}
+              </a>
             </div>
           ))}
         </div>
