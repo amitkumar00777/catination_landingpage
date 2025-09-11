@@ -20,7 +20,7 @@ export const metadata = {
     siteName: 'Catination CRM',
     images: [
       {
-        url: 'https://www.catination.com/catination-logo.png',
+        url: 'https://www.catination.com/logo.jpeg',
         width: 1200,
         height: 630,
         alt: 'Catination CRM - Real Estate CRM Software',
@@ -34,7 +34,7 @@ export const metadata = {
     title: 'Catination CRM - Best Real Estate CRM Software in Dubai & India',
     description:
       'Catination CRM is the best real estate CRM software for Dubai & India. Capture leads, manage sales, automate bulk emails & WhatsApp for real estate growth.',
-    images: ['https://www.catination.com/catination-logo.png'],
+    images: ['https://www.catination.com/logo.jpeg'],
   },
 };
 
@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Structured Data for SEO */}
+        {/* ✅ Software Application Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -58,21 +58,69 @@ export default function RootLayout({ children }) {
                 '@type': 'Organization',
                 name: 'Catination',
                 url: 'https://www.catination.com',
-                logo: 'https://www.catination.com/catination-logo.png',
+                logo: 'https://www.catination.com/logo.jpeg',
               },
               url: 'https://www.catination.com',
-              image: 'https://www.catination.com/catination-logo.png',
+              applicationSuite: 'https://app.catination.com/',
+              image: 'https://www.catination.com/logo.jpeg',
               description:
                 'Catination CRM is the best Real Estate CRM in Dubai & India. Lead capture, property management, sales automation, bulk email campaigns, WhatsApp CRM & real estate marketing software for agents, brokers & developers.',
               offers: {
                 '@type': 'Offer',
-                price: '0', // Change if not free trial
+                price: '0',
                 priceCurrency: 'USD',
               },
               aggregateRating: {
                 '@type': 'AggregateRating',
                 ratingValue: '4.9',
                 ratingCount: '120',
+              },
+            }),
+          }}
+        />
+
+        {/* ✅ Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Catination CRM',
+              url: 'https://www.catination.com',
+              logo: 'https://www.catination.com/logo.jpeg',
+              sameAs: [
+                'https://twitter.com/catinationcrm',
+                'https://www.linkedin.com/company/catinationcrm/',
+                'https://www.facebook.com/catinationcrm/',
+                'https://www.instagram.com/catinationcrm/',
+              ],
+              contactPoint: [
+                {
+                  '@type': 'ContactPoint',
+                  telephone: '+91-8178714102',
+                  contactType: 'customer service',
+                  areaServed: ['AE', 'IN'],
+                  availableLanguage: ['English', 'Hindi'],
+                },
+              ],
+            }),
+          }}
+        />
+
+        {/* ✅ Website Schema with Sitelinks */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Catination CRM',
+              url: 'https://www.catination.com',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://www.catination.com/search?q={search_term_string}',
+                'query-input': 'required name=search_term_string',
               },
             }),
           }}
