@@ -6,10 +6,11 @@ import { ArrowRight, CheckCircle } from "lucide-react"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: "",
+     name:"",
     mobileNumber: "",
     email: "",
-    message: "",
+    companyName: "",
+     message: ""
   })
 
   const [loading, setLoading] = useState(false)
@@ -25,7 +26,7 @@ export default function Contact() {
     setSuccess(null)
 
     try {
-      const res = await fetch("https://api.catination.com:8484/sendMail", {
+      const res = await fetch("https://api.catination.com/service/sendMail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
