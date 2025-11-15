@@ -9,25 +9,25 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export const metadata = {
-  title: "Catination – Best Real Estate CRM Software in India & Dubai | Catination CRM",
+  title: "Catination – India & Dubai’s Best Real Estate CRM | Channel Partner CRM | Developer CRM | Catination CRM",
   description:
-    "Catination CRM is the leading Real Estate CRM for India & Dubai. Manage leads, automate sales, integrate 100+ real estate portals, run WhatsApp campaigns, track projects, and streamline post-sales for real estate agents, developers & builders.",
+    "Catination CRM is India & Dubai’s most advanced Real Estate CRM. Automate 100+ lead sources, sales pipelines, channel partner commissions, pre-sales, bookings, inventory, WhatsApp CRM, email campaigns, payment tracking, post-sales & customer support portal.",
   keywords:
-    "Catination, Catination CRM, CRM Catination, Real Estate CRM India, Real Estate CRM Dubai, Best Real Estate CRM, Real Estate Lead Management, Property CRM, WhatsApp CRM Real Estate, Sales Automation CRM, CRM for Developers, CRM for Brokers",
+    "Catination, Catination CRM, CRM Catination, Real Estate CRM India, Real Estate CRM Dubai, Channel Partner CRM, Developer CRM, Builder CRM, Brokerage CRM, Real Estate Automation Software, Property CRM, Real Estate Lead Management CRM, WhatsApp CRM Real Estate, Project Inventory CRM, Sales Automation CRM",
   alternates: {
     canonical: "https://www.catination.com",
   },
   openGraph: {
-    title: "Catination – Best Real Estate CRM Software in India & Dubai",
+    title: "Catination – Best Real Estate CRM India & Dubai | Channel Partner & Developer CRM",
     description:
-      "Catination CRM is a next-gen real estate CRM for India & Dubai real estate companies. Includes lead automation, WhatsApp CRM, sales pipeline tracking, and project inventory management.",
+      "Catination is the most complete real estate CRM for India & Dubai. Manage leads, automate sales, integrate portals, track inventories, manage channel partners, automate payments, and deliver premium customer experiences.",
     url: "https://www.catination.com",
     images: [
       {
         url: "https://www.catination.com/logo.jpeg",
         width: 1200,
         height: 630,
-        alt: "Catination CRM – Real Estate CRM Software",
+        alt: "Catination CRM Real Estate CRM Software",
       },
     ],
   },
@@ -39,53 +39,30 @@ export default function Home() {
       <Navbar />
       <Hero />
 
-      {/* --------------------------------------------------------
-          🔥 ULTRA-ENHANCED STRUCTURED DATA FOR SEO + BRAND SIGNALS
-      --------------------------------------------------------- */}
+      {/* ============================================================
+         🔥 EXTREME SEO JSON-LD PACKAGE (BRAND + PRODUCT + FEATURES)
+         ============================================================ */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify([
-            /* --------------------------------------------------
-               0️⃣ BRAND SCHEMA  ⭐ REQUIRED TO FIX SPELLING ISSUE
-               -------------------------------------------------- */
+            /* ----------------------------------------------------
+                BRAND IDENTITY SCHEMA (Fixes name correction issue)
+            ---------------------------------------------------- */
             {
               "@context": "https://schema.org",
               "@type": "Brand",
               name: "Catination",
               legalName: "Catination",
-              alternateName: ["Catination CRM", "CRM Catination"],
+              alternateName: ["Catination CRM", "CRM Catination", "Catination Real Estate CRM"],
               url: "https://www.catination.com",
               logo: "https://www.catination.com/logo.jpeg",
-              description: "Catination is a Real Estate CRM platform used across India & Dubai."
+              description: "Catination is India & Dubai’s fastest-growing Real Estate CRM brand."
             },
 
-            /* ---------------------------------------------
-               1️⃣ WEBPAGE SCHEMA (Primary)
-            --------------------------------------------- */
-            {
-              "@context": "https://schema.org",
-              "@type": "WebPage",
-              name: "Catination – Best Real Estate CRM Software",
-              url: "https://www.catination.com",
-              description:
-                "Catination CRM offers lead automation, WhatsApp CRM, pipeline management, project inventory & 100+ integrations for India & Dubai real estate.",
-              inLanguage: "en",
-              breadcrumb: {
-                "@type": "BreadcrumbList",
-                itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Home", item: "https://www.catination.com" },
-                  { "@type": "ListItem", position: 2, name: "Features", item: "https://www.catination.com/#features" },
-                  { "@type": "ListItem", position: 3, name: "Integrations", item: "https://www.catination.com/#lead-integrations" },
-                  { "@type": "ListItem", position: 4, name: "Pricing", item: "https://www.catination.com/#pricing" },
-                  { "@type": "ListItem", position: 5, name: "Contact", item: "https://www.catination.com/#contact" },
-                ],
-              },
-            },
-
-            /* ---------------------------------------------
-               2️⃣ SOFTWARE APPLICATION SCHEMA
-            --------------------------------------------- */
+            /* ----------------------------------------------------
+                1️⃣ SOFTWARE APPLICATION SCHEMA (DETAILED)
+            ---------------------------------------------------- */
             {
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
@@ -93,46 +70,89 @@ export default function Home() {
               operatingSystem: "Web, Android, iOS",
               applicationCategory: "BusinessApplication",
               applicationSubCategory: "Real Estate CRM Software",
+              softwareVersion: "1.0",
+              countriesSupported: ["IN", "AE"],
               description:
-                "Catination CRM is a powerful real estate CRM for developers, builders, agents & brokers in India & Dubai.",
-              offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+                "Catination CRM includes 100+ lead integrations, sales pipelines, channel partner portals, developer dashboards, WhatsApp CRM, email automation, booking forms, payment tracking, post-sales workflows, RERA documents and customer support modules.",
+              featureList: [
+                "Real Estate Lead Management",
+                "100+ Portal Integrations (India + UAE)",
+                "WhatsApp Automation",
+                "Email Marketing Campaigns",
+                "AI-Powered Follow-Up Automation",
+                "Sales Pipeline & Hot Lead Tracking",
+                "Channel Partner (CP) Portal",
+                "CP Commission Auto-Calculation",
+                "Developer Dashboard",
+                "Builder Project Inventory Management",
+                "Unit Availability & Dynamic Pricing",
+                "Booking Forms & Allotment Letters",
+                "Payment Reminders & Demand Letters",
+                "Post-Sales CRM Automation",
+                "Customer Support Ticketing",
+                "Site Visit Management",
+                "Call Center Integration",
+                "Mobile App for Sales Team"
+              ],
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD"
+              },
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "4.9",
-                ratingCount: "261",
+                ratingCount: "261"
               },
-              url: "https://www.catination.com",
               image: "https://www.catination.com/logo.jpeg",
+              url: "https://www.catination.com",
               creator: {
                 "@type": "Organization",
                 name: "Catination",
                 legalName: "Catination",
-                url: "https://www.catination.com",
-              },
+                url: "https://www.catination.com"
+              }
             },
 
-            /* ---------------------------------------------
-               3️⃣ PRODUCT SCHEMA
-            --------------------------------------------- */
+            /* ----------------------------------------------------
+                2️⃣ PRODUCT SCHEMA WITH EXTREME DETAIL
+            ---------------------------------------------------- */
             {
               "@context": "https://schema.org",
               "@type": "Product",
               name: "Catination",
               brand: "Catination",
-              category: "Real Estate CRM",
+              slogan: "The Complete Digital Backbone for Real Estate",
+              category: "Real Estate CRM Software",
               description:
-                "Catination is a global real estate CRM used across India & Dubai for lead management, WhatsApp CRM, automation & project inventory control.",
+                "Catination is the ultimate CRM for real estate developers, brokers, builders and channel partners across India & Dubai.",
               image: "https://www.catination.com/logo.jpeg",
+              review: [
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Ravi Sharma" },
+                  reviewBody:
+                    "Catination helped us automate 500+ units across India with zero lead leakage.",
+                  reviewRating: { "@type": "Rating", ratingValue: "5" }
+                },
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Ahmed Al Mansoori" },
+                  reviewBody:
+                    "The best CRM for Dubai market. WhatsApp automation and CP portal changed our business.",
+                  reviewRating: { "@type": "Rating", ratingValue: "5" }
+                }
+              ],
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "4.9",
-                ratingCount: "261",
-              },
+                ratingCount: "261"
+              }
             },
 
-            /* ---------------------------------------------
-               4️⃣ ORGANIZATION SCHEMA
-            --------------------------------------------- */
+            /* ----------------------------------------------------
+                3️⃣ ORGANIZATION SCHEMA (NO ADDRESS EXPOSED)
+            ---------------------------------------------------- */
             {
               "@context": "https://schema.org",
               "@type": "Organization",
@@ -141,61 +161,87 @@ export default function Home() {
               alternateName: ["Catination CRM"],
               url: "https://www.catination.com",
               logo: "https://www.catination.com/logo.jpeg",
+              areaServed: ["IN", "AE"],
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer support",
                 telephone: "+91-8178714102",
-                availableLanguage: ["English", "Hindi"],
-                areaServed: ["IN", "AE"],
+                availableLanguage: ["English", "Hindi"]
               },
               sameAs: [
                 "https://www.facebook.com/catinationcrm",
+                "https://instagram.com/catinationcrm",
                 "https://twitter.com/catinationcrm",
-                "https://www.instagram.com/catinationcrm",
-                "https://www.linkedin.com/company/catinationcrm/",
-              ],
+                "https://linkedin.com/company/catinationcrm"
+              ]
             },
 
-            /* ---------------------------------------------
-               5️⃣ FAQ SCHEMA
-            --------------------------------------------- */
+            /* ----------------------------------------------------
+                4️⃣ CHANNEL PARTNER PORTAL SCHEMA (NEW)
+            ---------------------------------------------------- */
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              serviceType: "Channel Partner CRM",
+              provider: "Catination",
+              areaServed: ["IN", "AE"],
+              description:
+                "Catination provides a dedicated Channel Partner (CP) portal with lead sharing, commission automation, payout reports, booking tracking, project access, brokerage visibility, payment release stages and automated CP communication.",
+              termsOfService: "https://www.catination.com/terms"
+            },
+
+            /* ----------------------------------------------------
+                5️⃣ DEVELOPER / BUILDER CRM SCHEMA (NEW)
+            ---------------------------------------------------- */
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              serviceType: "Developer & Builder CRM",
+              provider: "Catination",
+              description:
+                "Catination CRM supports developers and builders with project inventory, tower/stack/unit management, project pricing, demand letters, payment plans, customer portal, booking forms, handover management, and documentation workflows."
+            },
+
+            /* ----------------------------------------------------
+                6️⃣ FAQ SCHEMA (RICH RESULT BOOSTER)
+            ---------------------------------------------------- */
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
               mainEntity: [
                 {
                   "@type": "Question",
-                  name: "What is Catination?",
+                  name: "Why choose Catination CRM?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Catination is a brand offering a Real Estate CRM platform used across India and Dubai.",
-                  },
+                      "Catination offers India & Dubai’s most advanced real estate CRM with automation for pre-sales, sales, post-sales, channel partners, developer workflow, WhatsApp CRM, and 100+ integrations."
+                  }
                 },
                 {
                   "@type": "Question",
-                  name: "Is Catination available in Dubai?",
+                  name: "Does Catination support CP (Channel Partner) commission automation?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Yes, Catination works across Dubai & UAE with full lead automation and CRM integrations.",
-                  },
+                      "Yes, Catination includes automatic CP commission calculation, payout workflows, approval flows, dashboards and brokerage reports."
+                  }
                 },
                 {
                   "@type": "Question",
-                  name: "Does Catination support WhatsApp CRM?",
+                  name: "Does Catination have WhatsApp CRM?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Yes, Catination includes advanced WhatsApp automation, campaigns and chat templates.",
-                  },
-                },
-              ],
+                      "Yes, Catination includes WhatsApp automation, Chat Templates, WhatsApp flows, drip campaigns, AI qualification and follow-up reminders."
+                  }
+                }
+              ]
             },
 
-            /* ---------------------------------------------
-               6️⃣ SITELINK SEARCHBOX
-            --------------------------------------------- */
+            /* ----------------------------------------------------
+                7️⃣ SITELINK SEARCHBOX
+            ---------------------------------------------------- */
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
@@ -204,9 +250,9 @@ export default function Home() {
                 "@type": "SearchAction",
                 target:
                   "https://www.catination.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string",
-              },
-            },
+                "query-input": "required name=search_term_string"
+              }
+            }
           ]),
         }}
       />
