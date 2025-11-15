@@ -51,7 +51,7 @@ export default function ChatWidget() {
     return !scopeKeywords.some(keyword => lowerMessage.includes(keyword));
   };
 
-  // Create WhatsApp URL with conversation context
+  // Create WhatsApp URL to send question directly to Cati
   const createWhatsAppUrl = (message, includeConversation = false) => {
     let fullMessage = message;
     
@@ -61,22 +61,29 @@ export default function ChatWidget() {
         `${msg.sender === 'user' ? 'Me' : 'Cati'}: ${msg.text}`
       ).join('\n');
       
-      fullMessage = `Continuing our conversation:\n\n${conversation}\n\nMy new message: ${message}`;
+      fullMessage = `Question for Cati:\n\n${conversation}\n\nMy question: ${message}`;
     } else {
-      fullMessage = `New message from chat widget:\n\n"${message}"\n\nPlease respond when available.`;
+      fullMessage = `Question for Cati:\n\n"${message}"\n\nPlease help me with this.`;
     }
     
     const encodedMessage = encodeURIComponent(fullMessage);
     return `https://wa.me/9178714102?text=${encodedMessage}`;
   };
 
-  // Create WhatsApp URL for continuing entire conversation
+  // Create WhatsApp URL for sending entire conversation to Cati
   const createConversationWhatsAppUrl = () => {
     const conversation = messages.map(msg => 
       `${msg.sender === 'user' ? 'Me' : 'Cati'}: ${msg.text}`
     ).join('\n');
     
-    const fullMessage = `Continuing our conversation from the website:\n\n${conversation}\n\nI'd like to continue this conversation on WhatsApp.`;
+    const fullMessage = `Continuing conversation with Cati:\n\n${conversation}\n\nI'd like to continue this conversation with you on WhatsApp.`;
+    const encodedMessage = encodeURIComponent(fullMessage);
+    return `https://wa.me/9178714102?text=${encodedMessage}`;
+  };
+
+  // Create WhatsApp URL specifically for asking a question to Cati
+  const createQuestionForCatiUrl = (question) => {
+    const fullMessage = `Hi Cati! I have a question:\n\n"${question}"\n\nCan you please help me with this?`;
     const encodedMessage = encodeURIComponent(fullMessage);
     return `https://wa.me/9178714102?text=${encodedMessage}`;
   };
@@ -100,12 +107,12 @@ export default function ChatWidget() {
 
     // Check if message is out of scope
     if (isOutOfScope(inputText)) {
-      const whatsappUrl = createWhatsAppUrl(inputText, true);
+      const whatsappUrl = createQuestionForCatiUrl(inputText);
       
       setTimeout(() => {
         const botMessage = {
           id: Date.now() + 1,
-          text: "This seems to be outside my current scope. I've forwarded your message to our team via WhatsApp. They'll get back to you shortly with a proper response!",
+          text: "This seems to be outside my current scope. I've sent your question directly to Cati on WhatsApp. She'll get back to you shortly with a proper response!",
           sender: "bot",
           timestamp: new Date(),
           isOutOfScope: true,
@@ -118,10 +125,10 @@ export default function ChatWidget() {
     } else {
       setTimeout(() => {
         const responses = [
-          "Thanks for your message! Our team will get back to you soon.",
-          "I understand your query. Let me connect you with a specialist.",
-          "That's a great question! One of our experts can provide detailed assistance.",
-          "I've noted your interest. We'll contact you shortly with more information."
+          "I can help you with that! I've sent your question to Cati on WhatsApp for detailed assistance.",
+          "Great question! I've forwarded this to Cati on WhatsApp - she'll provide you with expert help.",
+          "Thanks for your query! Cati will assist you personally on WhatsApp with this matter.",
+          "I've shared your question with Cati on WhatsApp. She'll contact you shortly with comprehensive information."
         ];
         const randomResponse = responses[Math.floor(Math.random() * responses.length)];
         
@@ -130,7 +137,7 @@ export default function ChatWidget() {
           text: randomResponse,
           sender: "bot",
           timestamp: new Date(),
-          whatsappUrl: createConversationWhatsAppUrl()
+          whatsappUrl: createQuestionForCatiUrl(inputText)
         };
 
         setMessages(prev => [...prev, botMessage]);
@@ -183,10 +190,10 @@ export default function ChatWidget() {
     setTimeout(() => {
       const botMessage = {
         id: Date.now() + 1,
-        text: `I can help you with ${reply.text.toLowerCase()}. Let me scroll to the ${reply.text.toLowerCase()} section for you!`,
+        text: `I can help you with ${reply.text.toLowerCase()}. Let me scroll to the ${reply.text.toLowerCase()} section for you! I've also sent your query to Cati on WhatsApp for personalized assistance.`,
         sender: "bot",
         timestamp: new Date(),
-        whatsappUrl: createConversationWhatsAppUrl()
+        whatsappUrl: createQuestionForCatiUrl(reply.text)
       };
 
       setMessages(prev => [...prev, botMessage]);
@@ -214,12 +221,18 @@ export default function ChatWidget() {
     </svg>
   );
 
-  // Function to handle direct WhatsApp click
+  // Function to handle direct WhatsApp click - sends question to Cati
   const handleDirectWhatsApp = (customMessage = null) => {
     const whatsappUrl = customMessage 
-      ? createWhatsAppUrl(customMessage)
+      ? createQuestionForCatiUrl(customMessage)
       : createConversationWhatsAppUrl();
     
+    window.open(whatsappUrl, '_blank');
+  };
+
+  // Function to send any message directly to Cati on WhatsApp
+  const sendToCatiOnWhatsApp = (message) => {
+    const whatsappUrl = createQuestionForCatiUrl(message);
     window.open(whatsappUrl, '_blank');
   };
 
@@ -281,7 +294,7 @@ export default function ChatWidget() {
                   <span className={`w-2 h-2 rounded-full ${
                     onlineStatus ? 'bg-green-400 animate-pulse' : 'bg-gray-400'
                   }`}></span>
-                  {onlineStatus ? 'Online • replies instantly' : 'Offline'}
+                  {onlineStatus ? 'Online • Ask Cati on WhatsApp' : 'Offline'}
                 </p>
               </div>
             </div>
@@ -336,17 +349,33 @@ export default function ChatWidget() {
                       >
                         <p className="text-sm">{message.text}</p>
                         
-                        {/* WhatsApp Button for ALL Messages */}
-                        {(message.isOutOfScope || message.whatsappUrl) && (
-                          <a 
-                            href={message.whatsappUrl || createConversationWhatsAppUrl()}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 mt-2 px-3 py-1 bg-green-500 text-white text-xs rounded-full hover:bg-green-600 transition-colors"
+                        {/* WhatsApp Button for ALL Bot Messages - Send to Cati */}
+                        {message.sender === 'bot' && message.whatsappUrl && (
+                          <div className="mt-2 space-y-1">
+                            <a 
+                              href={message.whatsappUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 px-3 py-1 bg-green-500 text-white text-xs rounded-full hover:bg-green-600 transition-colors w-full justify-center"
+                            >
+                              <WhatsAppIcon className="w-3 h-3" />
+                              Ask Cati on WhatsApp
+                            </a>
+                            <p className="text-xs text-gray-500 text-center">
+                              Get personal assistance from Cati
+                            </p>
+                          </div>
+                        )}
+
+                        {/* For user messages, show option to send to Cati */}
+                        {message.sender === 'user' && (
+                          <button
+                            onClick={() => sendToCatiOnWhatsApp(message.text)}
+                            className="inline-flex items-center gap-1 mt-2 px-3 py-1 bg-blue-500 text-white text-xs rounded-full hover:bg-blue-600 transition-colors"
                           >
                             <WhatsAppIcon className="w-3 h-3" />
-                            Continue on WhatsApp
-                          </a>
+                            Send to Cati
+                          </button>
                         )}
                         
                         <p className={`text-xs mt-1 ${
@@ -391,7 +420,7 @@ export default function ChatWidget() {
               {/* Quick Replies - IMPROVED VISIBILITY */}
               {showQuickReplies && (
                 <div className="px-4 py-3 bg-green-50 border-t border-green-200">
-                  <p className="text-xs text-gray-600 mb-2 font-medium">Quick replies:</p>
+                  <p className="text-xs text-gray-600 mb-2 font-medium">Ask Cati about:</p>
                   <div className="flex flex-wrap gap-2">
                     {quickReplies.map((reply, index) => (
                       <button
@@ -406,15 +435,18 @@ export default function ChatWidget() {
                 </div>
               )}
 
-              {/* WhatsApp Quick Action Button */}
-              <div className="px-4 py-2 bg-blue-50 border-t border-blue-200">
+              {/* Direct WhatsApp to Cati Button */}
+              <div className="px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 border-t border-green-200">
                 <button
                   onClick={() => handleDirectWhatsApp()}
-                  className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium"
+                  className="w-full flex items-center justify-center gap-2 bg-white bg-opacity-20 backdrop-blur-sm hover:bg-opacity-30 text-white py-2 px-4 rounded-lg transition-all duration-300 text-sm font-medium border border-white border-opacity-30"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
-                  Continue Conversation on WhatsApp
+                  💬 Chat Directly with Cati on WhatsApp
                 </button>
+                <p className="text-xs text-white text-center mt-1 opacity-90">
+                  Get instant personal assistance
+                </p>
               </div>
 
               {/* Input Area */}
@@ -424,7 +456,7 @@ export default function ChatWidget() {
                     type="text"
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
-                    placeholder="Type your message..."
+                    placeholder="Ask your question..."
                     className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 text-gray-800 placeholder-gray-500"
                   />
                   <button
@@ -436,19 +468,19 @@ export default function ChatWidget() {
                   </button>
                 </form>
                 
-                {/* Quick WhatsApp Send */}
+                {/* Quick WhatsApp Send to Cati */}
                 {inputText.trim() && (
                   <button
                     onClick={() => handleDirectWhatsApp(inputText)}
-                    className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full transition-colors text-xs font-medium mb-2"
+                    className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full transition-colors text-xs font-medium mb-2 shadow-sm"
                   >
                     <WhatsAppIcon className="w-3 h-3" />
-                    Send via WhatsApp instead
+                    📱 Send directly to Cati on WhatsApp
                   </button>
                 )}
                 
                 <p className="text-xs text-gray-500 text-center">
-                  Typically replies in a few minutes
+                  All questions are sent to Cati for personal assistance
                 </p>
               </div>
             </>
