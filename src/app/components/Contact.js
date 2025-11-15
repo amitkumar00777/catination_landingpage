@@ -78,7 +78,7 @@ export default function Contact() {
                   <div>
                     <div className="text-white font-semibold">Call Us</div>
                     <div className="text-white/70">India: +91-8178714102</div>
-                    <div className="text-white/70">Dubai: +971-XXX-XXXX</div>
+                    {/* <div className="text-white/70">Dubai: +971-XXX-XXXX</div> */}
                   </div>
                 </div>
 
@@ -88,7 +88,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-white font-semibold">Email Us</div>
-                    <div className="text-white/70">sales@catination.com</div>
+                    {/* <div className="text-white/70">sales@catination.com</div> */}
                     <div className="text-white/70">support@catination.com</div>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-white/80 mb-2 font-semibold">I'm Interested In *</label>
+                <label className="block text-white/80 mb-2 font-semibold">I&apos;m Interested In *</label>
                 <select
                   name="interestedIn"
                   value={formData.interestedIn}
@@ -240,7 +240,7 @@ export default function Contact() {
                 <div className="bg-gradient-to-r from-green-500/10 to-green-600/10 p-4 rounded-xl border border-green-500/20">
                   <p className="text-green-400 flex items-center gap-2">
                     <CheckCircle className="w-5 h-5" /> 
-                    Message sent successfully! We'll get back to you within 24 hours.
+                    Message sent successfully! We&apos;ll get back to you within 24 hours.
                   </p>
                 </div>
               )}
