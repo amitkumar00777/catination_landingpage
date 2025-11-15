@@ -40,12 +40,26 @@ export default function Home() {
       <Hero />
 
       {/* --------------------------------------------------------
-          🔥 ULTRA-ENHANCED STRUCTURED DATA FOR TOP SEO RANKING
+          🔥 ULTRA-ENHANCED STRUCTURED DATA FOR SEO + BRAND SIGNALS
       --------------------------------------------------------- */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify([
+            /* --------------------------------------------------
+               0️⃣ BRAND SCHEMA  ⭐ REQUIRED TO FIX SPELLING ISSUE
+               -------------------------------------------------- */
+            {
+              "@context": "https://schema.org",
+              "@type": "Brand",
+              name: "Catination",
+              legalName: "Catination",
+              alternateName: ["Catination CRM", "CRM Catination"],
+              url: "https://www.catination.com",
+              logo: "https://www.catination.com/logo.jpeg",
+              description: "Catination is a Real Estate CRM platform used across India & Dubai."
+            },
+
             /* ---------------------------------------------
                1️⃣ WEBPAGE SCHEMA (Primary)
             --------------------------------------------- */
@@ -117,13 +131,14 @@ export default function Home() {
             },
 
             /* ---------------------------------------------
-               4️⃣ ORGANIZATION SCHEMA (India+Dubai, No Dubai address)
+               4️⃣ ORGANIZATION SCHEMA
             --------------------------------------------- */
             {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Catination",
               legalName: "Catination",
+              alternateName: ["Catination CRM"],
               url: "https://www.catination.com",
               logo: "https://www.catination.com/logo.jpeg",
               contactPoint: {
@@ -142,7 +157,7 @@ export default function Home() {
             },
 
             /* ---------------------------------------------
-               5️⃣ FAQ SCHEMA (Boosts Google Rich Results)
+               5️⃣ FAQ SCHEMA
             --------------------------------------------- */
             {
               "@context": "https://schema.org",
@@ -150,36 +165,36 @@ export default function Home() {
               mainEntity: [
                 {
                   "@type": "Question",
-                  name: "What is Catination CRM?",
+                  name: "What is Catination?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Catination CRM is a real estate CRM platform designed for brokers, developers and builders in India & Dubai.",
+                      "Catination is a brand offering a Real Estate CRM platform used across India and Dubai.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Does Catination work in Dubai?",
+                  name: "Is Catination available in Dubai?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Yes, Catination CRM works across Dubai & UAE with portal integrations and sales automation workflows.",
+                      "Yes, Catination works across Dubai & UAE with full lead automation and CRM integrations.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Does Catination offer WhatsApp CRM?",
+                  name: "Does Catination support WhatsApp CRM?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Yes, Catination provides WhatsApp automation, campaigns, chat templates and instant reminders.",
+                      "Yes, Catination includes advanced WhatsApp automation, campaigns and chat templates.",
                   },
                 },
               ],
             },
 
             /* ---------------------------------------------
-               6️⃣ Sitelink SearchBox SCHEMA
+               6️⃣ SITELINK SEARCHBOX
             --------------------------------------------- */
             {
               "@context": "https://schema.org",
@@ -197,37 +212,23 @@ export default function Home() {
       />
 
       {/* ============================ */}
-      {/*      FEATURES SECTION        */}
-      {/* ============================ */}
-      <section id="features" aria-labelledby="features-heading">
+      <section id="features">
         <Features />
       </section>
 
-      {/* ============================ */}
-      {/*   LEAD INTEGRATIONS SECTION  */}
-      {/* ============================ */}
-      <section id="lead-integrations" aria-labelledby="lead-integrations-heading">
+      <section id="lead-integrations">
         <LeadIntegrations />
       </section>
 
-      {/* ============================ */}
-      {/*     TESTIMONIALS SECTION     */}
-      {/* ============================ */}
-      <section id="testimonials" aria-labelledby="testimonials-heading">
+      <section id="testimonials">
         <Testimonials />
       </section>
 
-      {/* ============================ */}
-      {/*       PRICING SECTION        */}
-      {/* ============================ */}
-      <section id="pricing" aria-labelledby="pricing-heading">
+      <section id="pricing">
         <Pricing />
       </section>
 
-      {/* ============================ */}
-      {/*       CONTACT SECTION        */}
-      {/* ============================ */}
-      <section id="contact" aria-labelledby="contact-heading">
+      <section id="contact">
         <Contact />
       </section>
 
