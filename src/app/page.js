@@ -7,6 +7,8 @@ import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ChatWidget from "./components/ChatWidget";
+
 
 export const metadata = {
   title: "Catination – India & Dubai’s Best Real Estate CRM | Channel Partner CRM | Developer CRM | Catination CRM",
@@ -37,6 +39,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Navbar />
+      <ChatWidget /> 
       <Hero />
 
       {/* ============================================================
